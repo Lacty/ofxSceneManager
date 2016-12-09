@@ -15,9 +15,9 @@ ofxSceneManager* ofxSceneManager::singleton = NULL;
 ofxSceneManager::ofxSceneManager(){
 
 	currentScene = futureScene = NULL;
-	curtainDropTime = 0.5f;
+	curtainDropTime = 0.0f;
 	curtainStayTime = 0.0f;
-	curtainRiseTime = 0.5f;
+	curtainRiseTime = 0.0f;
 	drawDebugInfo = false;
 	overlapUpdate = false;
 	curtain.setAnimationCurve(EASE_IN_EASE_OUT);
@@ -146,7 +146,10 @@ bool ofxSceneManager::goToScene( int ID, bool regardless, bool doTransition){
 	if ( curtain.isReady() || regardless){
 
 		ofxScene * next = getScene( ID );
-		
+		if (next != NULL) {
+      next->setup();
+    }
+    
 		if (doTransition){
 			
 			if (next != NULL){
