@@ -43,7 +43,7 @@ void ofxSceneManager::addScene( ofxScene* newScene, int sceneID ){
 		printf("ofxSceneManager::addScene(%d) >> we already have a scene with that ID", sceneID );
 	}else{
 		newScene->setManager( this );
-		newScene->setup();
+		//newScene->setup();
 		newScene->setSceneID( sceneID );
 		scenes[sceneID] = newScene;
 		printf("ofxSceneManager::addScene(%d) >> added scene\n", sceneID );		
