@@ -21,6 +21,8 @@ ofxSceneManager::ofxSceneManager(){
 	drawDebugInfo = false;
 	overlapUpdate = false;
 	curtain.setAnimationCurve(EASE_IN_EASE_OUT);
+  
+  ofAddListener(ofEvents().windowResized, this, &ofxSceneManager::windowResized);
 }
 
 
@@ -269,12 +271,12 @@ void ofxSceneManager::mouseReleased(int x, int y, int button){
 	if (currentScene != NULL) currentScene->mouseReleased( x, y, button );
 }
 
-void ofxSceneManager::windowResized (int w, int h){
-	curtain.setScreenSize( ofRectangle(0, 0, w, h) );
+void ofxSceneManager::windowResized (ofResizeEventArgs &resize){
+	curtain.setScreenSize( ofRectangle(0, 0, resize.width, resize.height) );
 	for( map<int,ofxScene*>::iterator ii = scenes.begin(); ii != scenes.end(); ++ii ){
 		//string key = (*ii).first;
 		ofxScene* t = (*ii).second;
-		t->windowResized(w, h);
+		t->windowResized(resize.width, resize.height);
 	}
 }
 
