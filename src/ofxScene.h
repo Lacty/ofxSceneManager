@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  ofxScene.h
  *  Cocoa Test
  *

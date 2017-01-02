@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  ofxSceneManager.cpp
  *  Cocoa Test
  *

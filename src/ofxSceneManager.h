@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  ofxSceneManager.h
  *
  *  Created by Oriol Ferrer Mesià on 02/11/09.
