@@ -32,6 +32,7 @@ class ofxScene{
 		
 		virtual void update(float){} ;
 		virtual void draw(){};
+    virtual void gui() {};
 
 		virtual void showUI(){}
 		virtual void hideUI(){}

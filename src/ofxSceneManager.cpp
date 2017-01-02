@@ -2,7 +2,7 @@
  *  ofxSceneManager.cpp
  *  Cocoa Test
  *
- *  Created by Oriol Ferrer Mesià on 02/11/09.
+ *  Created by Oriol Ferrer Mesi√† on 02/11/09.
  *  Copyright 2009 uri.cat. All rights reserved.
  *
  */
@@ -122,6 +122,14 @@ void ofxSceneManager::draw(){
 		ofSetColor(255, 0, 0);
 		drawDebug();
 	}
+}
+
+// gui用関数
+// drawの後に呼ばれます
+void ofxSceneManager::gui() {
+  if (currentScene != nullptr) {
+    currentScene->gui();
+  }
 }
 
 void ofxSceneManager::drawDebug(){

@@ -28,6 +28,7 @@ class ofxSceneManager{
 	
 		void update(float dt);
 		void draw();
+    void gui();
 	
 		void addScene( ofxScene* newScene, int sceneID );
 		
