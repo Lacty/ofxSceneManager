@@ -34,7 +34,9 @@ ofxSceneManager* ofxSceneManager::instance(){
 }
 
 
-ofxSceneManager::~ofxSceneManager(){}
+ofxSceneManager::~ofxSceneManager() {
+  ofRemoveListener(ofEvents().windowResized, this, &ofxSceneManager::windowResized);
+}
 
 
 void ofxSceneManager::addScene( ofxScene* newScene, int sceneID ){
