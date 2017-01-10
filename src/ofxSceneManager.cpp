@@ -159,6 +159,8 @@ bool ofxSceneManager::goToScene( int ID, bool regardless, bool doTransition){
 
 		ofxScene * next = getScene( ID );
 		if (next != NULL) {
+      if (currentScene != NULL)
+        currentScene->exit();
       next->setup();
     }
     
@@ -168,7 +170,7 @@ bool ofxSceneManager::goToScene( int ID, bool regardless, bool doTransition){
 				futureScene = next;
 				curtain.dropAndRaiseCurtain(curtainDropTime, curtainStayTime, curtainRiseTime, regardless);
 				if (currentScene) {
-          currentScene->exit();
+          //currentScene->exit();
           currentScene->sceneWillDisappear(futureScene);
         }
 				return true;
@@ -180,7 +182,7 @@ bool ofxSceneManager::goToScene( int ID, bool regardless, bool doTransition){
 			if (next != NULL){
 				//notify
 				if (currentScene) {
-          currentScene->exit();
+          //currentScene->exit();
           currentScene->sceneWillDisappear(next);
 				}
         next->sceneWillAppear(currentScene);
