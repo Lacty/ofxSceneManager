@@ -167,7 +167,10 @@ bool ofxSceneManager::goToScene( int ID, bool regardless, bool doTransition){
 			if (next != NULL){
 				futureScene = next;
 				curtain.dropAndRaiseCurtain(curtainDropTime, curtainStayTime, curtainRiseTime, regardless);
-				if (currentScene) currentScene->sceneWillDisappear(futureScene);				
+				if (currentScene) {
+          currentScene->exit();
+          currentScene->sceneWillDisappear(futureScene);
+        }
 				return true;
 			}else{
 				printf("ofxSceneManager::goToScene(%d) >> scene not found!\n", ID);
@@ -176,8 +179,11 @@ bool ofxSceneManager::goToScene( int ID, bool regardless, bool doTransition){
 			
 			if (next != NULL){
 				//notify
-				if (currentScene) currentScene->sceneWillDisappear(next);
-				next->sceneWillAppear(currentScene);
+				if (currentScene) {
+          currentScene->exit();
+          currentScene->sceneWillDisappear(next);
+				}
+        next->sceneWillAppear(currentScene);
 				if (currentScene) currentScene->sceneDidDisappear(futureScene);
 				next->sceneDidAppear();
 				//hot-swap current scenes

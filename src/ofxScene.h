@@ -29,6 +29,7 @@ class ofxScene{
 		virtual ~ofxScene() { printf("ofxScene Destructor :: %d\n", sceneID); }
 
 		virtual void setup(){ printf("ofxScene setup :: %d\n", sceneID); };
+    virtual void exit() { printf("ofxScene exit :: %d\n", sceneID); };
 		
 		virtual void update(float){} ;
 		virtual void draw(){};
